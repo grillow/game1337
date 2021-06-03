@@ -1,0 +1,120 @@
+html {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+canvas {
+    margin: 0;
+    
+    overflow: hidden;
+}
+
+#inputWrapper {
+    position: fixed;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.70);
+}
+
+#nicknameInput {
+    width: 20vw;
+    height: 5vh;
+    font-size: 4vh;
+    outline: none;
+}
+
+#colorpicker {
+    width: 16vh;
+    height: 5vh;
+    font-size: 4vh;
+    outline: none;
+}
+
+#chat {
+    position: fixed;
+    display: block;
+    left: 0;
+    bottom: 0;
+    width: 20%;
+    font-family: 'Times New Roman', Times, serif;
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+#history {
+    position: relative;
+    overflow: hidden;
+    max-height: 20vh;
+}
+
+#messageInput {
+    position: relative;
+    bottom: 0%;
+    width: 100%;
+    font-size: 1vw;
+    border: none;
+    outline: none;
+}
+
+.chat_message {
+    font-size: 1vw;
+}
+
+.system_message {
+    font-size: 1vw;
+    color: white;
+}
+
+#deathScreen {
+    position: fixed;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    pointer-events: none;
+}
+
+#deathScreen h1 {
+    color: white ;
+    font-size: 12vw;
+    font-family: "Consolas", sans-serif;
+}
+
+#scoreboard {
+    position: fixed;
+    top: 0;
+    right: 0;
+    opacity: 0.75;
+    pointer-events: none;
+}
+
+#scoreboard > h3 {
+    color: white;
+    text-align: center;
+    font-size: 2vh;
+    max-height: 1vh;
+}
+
+.scoreboardItem {
+    font-size: 1.75vh;
+    text-align: right;
+
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>game1337</title>
+        <link rel="stylesheet" href="styles/style.css" type="text/css">
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+        <link rel="icon" href="favicon.ico" type="image/x-icon">
+        
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="/scripts/jscolor.js"></script>
+        <script type="module" src="/scripts/client.js"></script>
+
+    </head>
+    <body>
+        <canvas id="gameCanvas"></canvas>
+        <form id="inputWrapper">
+            <input type="text" placeHolder="Nickname" id="nicknameInput" maxlength="16" autofocus>
+            <input class="jscolor" value="FFFFFF" id="colorpicker">
+            <input type="submit" value="OK" id="loginButton">
+        </form>
+        <div id="chat">
+            <div id="history"></div>
+             <form id="chatInputWrapper">
+                <input type="text" placeHolder="message" autocomplete="off" id="messageInput">
+            </form>    
+        </div>
+        <div id="deathScreen">
+            <h1>ЧЕТКО В ЖБАН</h1>
+        </div>
+        <div id="scoreboard">
+            <h3>Leaderboard</h3>
+            <div id="top_container">
+
+            </div>
+        </div>
+    </body>
+</html>
