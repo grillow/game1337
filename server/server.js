@@ -89,6 +89,8 @@ io.sockets.on('connection', function(socket){
 setInterval(function(){
     var players = []
     var sockets = io.sockets.sockets
+    if (!sockets)
+        return;
     for (var id in sockets){
         if (!sockets[id].logged)
             continue
