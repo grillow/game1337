@@ -13,8 +13,9 @@ const __root = path.resolve(__dirname, '..')
 app.use('/', express.static(__root + '/client'))
 app.use('/game', express.static(__root + '/game'))
 
-server.listen(80)
-console.log('Server started')
+const PORT = process.argv[2]
+server.listen(PORT)
+console.log(`Server started at ${PORT}`)
 
 
 var io = require('socket.io')(server, {})
