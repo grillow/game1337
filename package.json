@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node -r esm ./server/server.js 8193"
+    "start": "node -r esm ./server/server.js 443"
   },
   "author": "",
   "license": "ISC",

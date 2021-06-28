@@ -2,11 +2,17 @@ import { Player } from '../game/player.js'
 import { BulletManager } from '../game/bulletmanager.js'
 import { AntiXSS } from './antixss.js'
 
-let bulletManager = new BulletManager()
+const bulletManager = new BulletManager()
 
-var express = require('express')
-var app = express()
-var server = require('http').Server(app)
+const express = require('express')
+const app = express()
+const fs = require('fs')
+const credentials = {
+    key: fs.readFileSync('/etc/letsencrypt/live/fallrock.net/privkey.pem', 'utf8'),
+    cert: fs.readFileSync('/etc/letsencrypt/live/fallrock.net/cert.pem', 'utf8'),
+    ca: fs.readFileSync('/etc/letsencrypt/live/fallrock.net/chain.pem', 'utf8')
+};
+const server = require('https').createServer(credentials, app)
 
 const path = require('path')
 const __root = path.resolve(__dirname, '..')
@@ -18,7 +24,7 @@ server.listen(PORT)
 console.log(`Server started at ${PORT}`)
 
 
-var io = require('socket.io')(server, {})
+const io = require('socket.io')(server, {})
 io.sockets.on('connection', function(socket){
 
     socket.logged = false
