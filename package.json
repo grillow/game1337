@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node -r esm ./server/server.js 443"
+    "start": "PORT=443 node -r esm ./server/server.js"
   },
   "author": "",
   "license": "ISC",
