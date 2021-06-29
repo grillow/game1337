@@ -19,13 +19,12 @@ const __root = path.resolve(__dirname, '..')
 app.use('/', express.static(__root + '/client'))
 app.use('/game', express.static(__root + '/game'))
 
-const PORT = process.env.PORT;
-server.listen(PORT);
+server.listen(443);
 require('http').createServer((req, res) => {
     res.writeHead(301, { Location: `https://${req.headers.host}${req.url}` });
     res.end();
-}).listen(PORT);
-console.log(`Server started at ${PORT}`);
+}).listen(80);
+console.log(`Server started`);
 
 
 const io = require('socket.io')(server, {})
