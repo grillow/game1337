@@ -12,7 +12,7 @@ const credentials = {
     cert: fs.readFileSync('/etc/letsencrypt/live/fallrock.net/cert.pem', 'utf8'),
     ca: fs.readFileSync('/etc/letsencrypt/live/fallrock.net/chain.pem', 'utf8')
 };
-const server = require('https').createServer(credentials, app)
+const server = require('https').createServer(credentials, app);
 
 const path = require('path')
 const __root = path.resolve(__dirname, '..')
@@ -20,8 +20,12 @@ app.use('/', express.static(__root + '/client'))
 app.use('/game', express.static(__root + '/game'))
 
 const PORT = process.env.PORT;
-server.listen(PORT)
-console.log(`Server started at ${PORT}`)
+server.listen(PORT);
+require('http').createServer((req, res) => {
+    res.writeHead(301, { Location: `https://${req.headers.host}${req.url}` });
+    res.end();
+}).listen(PORT);
+console.log(`Server started at ${PORT}`);
 
 
 const io = require('socket.io')(server, {})
