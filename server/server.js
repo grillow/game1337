@@ -6,25 +6,16 @@ const bulletManager = new BulletManager()
 
 const express = require('express')
 const app = express()
-const fs = require('fs')
-const credentials = {
-    key: fs.readFileSync('/etc/letsencrypt/live/fallrock.net/privkey.pem', 'utf8'),
-    cert: fs.readFileSync('/etc/letsencrypt/live/fallrock.net/cert.pem', 'utf8'),
-    ca: fs.readFileSync('/etc/letsencrypt/live/fallrock.net/chain.pem', 'utf8')
-};
-const server = require('https').createServer(credentials, app);
 
 const path = require('path')
 const __root = path.resolve(__dirname, '..')
 app.use('/', express.static(__root + '/client'))
 app.use('/game', express.static(__root + '/game'))
 
-server.listen(443);
-require('http').createServer((req, res) => {
-    res.writeHead(301, { Location: `https://${req.headers.host}${req.url}` });
-    res.end();
-}).listen(80);
-console.log(`Server started`);
+const server = require('http').createServer(app);
+const PORT = process.env.PORT;
+server.listen(PORT);
+console.log(`Server started at ${PORT}`);
 
 
 const io = require('socket.io')(server, {})
