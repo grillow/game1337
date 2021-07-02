@@ -17,8 +17,9 @@ const PORT = process.env.PORT;
 server.listen(PORT);
 console.log(`Server started at ${PORT}`);
 
-
-const io = require('socket.io')(server, {})
+const socketio = require('socket.io');
+console.log(`socket.io version: ${require('socket.io/package').version}`);
+const io = socketio(server, { cookie: false })
 io.sockets.on('connection', function(socket){
 
     socket.logged = false
