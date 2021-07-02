@@ -27,7 +27,7 @@ window.addEventListener('load', function(){
 
     setInterval(function(){
         draw()
-        clientUpdate()
+        //clientUpdate()
     }, 20)
 
     socket.on('connect', function(){
@@ -160,6 +160,7 @@ window.addEventListener('load', function(){
         socket.emit('input', GameInput.getdirX(), GameInput.getdirY())
     }
 
+    /*
     function clientUpdate(){
         players.forEach(function(player){
             Player.prototype.updatePosition.call(player)
@@ -168,6 +169,7 @@ window.addEventListener('load', function(){
             Bullet.prototype.updatePosition.call(bullet)
         })
     }
+    */
 
     function draw(){
         context.fillStyle = '#000000'
@@ -213,7 +215,5 @@ window.addEventListener('load', function(){
             socket.emit('input', xAxis, yAxis)
         }
     }, 20)
-    
-
 
 })
