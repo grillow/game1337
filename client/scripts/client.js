@@ -39,7 +39,7 @@ window.addEventListener('load', function(){
         }, 1000)
         socket.on('pong_latency', function(){
             latency = Date.now() - startTime
-            //console.log(latency)
+            console.log(latency)
         })
     })
 
