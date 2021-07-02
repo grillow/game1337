@@ -1,5 +1,6 @@
 FROM node:14
 
+ENV NODE_ENV=production
 WORKDIR /usr/src/game1337
 
 COPY package*.json ./
