@@ -38,8 +38,8 @@ window.addEventListener('load', function(){
             socket.emit('ping_latency')
         }, 1000)
         socket.on('pong_latency', function(){
-            latency = Date.now() - startTime
-            console.log(latency)
+            latency = Date.now() - startTime;
+            //console.log(latency);
         })
     })
 
