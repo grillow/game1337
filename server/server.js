@@ -12,13 +12,13 @@ const __root = path.resolve(__dirname, '..')
 app.use('/', express.static(__root + '/client'))
 app.use('/game', express.static(__root + '/game'))
 
-const server = require('http').createServer(app);
+const httpServer = require('http').createServer(app);
 const PORT = process.env.PORT;
-server.listen(PORT);
+httpServer.listen(PORT);
 console.log(`Server started at ${PORT}`);
 
 const socketio = require('socket.io');
-const io = socketio(server, { })
+const io = socketio(httpServer, { })
 io.sockets.on('connection', function(socket){
 
     socket.logged = false
