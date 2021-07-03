@@ -9,6 +9,7 @@
   "author": "grillow1337",
   "license": "MIT",
   "dependencies": {
+    "@eastdesire/jscolor": "^2.4.5",
     "esm": "^3.2.25",
     "express": "^4.17.1",
     "socket.io": "^2.4.1"
